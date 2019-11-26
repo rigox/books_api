@@ -12,6 +12,8 @@ dotenv.config({path:'./config/config.env'})
 //setup DB connection
 db()
 
+//setup bodyparser 
+app.use(express.json(), express.urlencoded({extended:true}))
 
 //load routes  
 const books =  require('./routes/books')
@@ -19,8 +21,7 @@ const books =  require('./routes/books')
 //setup routes
 app.use('/api/v1/books',books)
 
-//setup bodyparser 
-app.use(express.json(), express.urlencoded({extended:true}))
+
 
 //setup cors 
 
