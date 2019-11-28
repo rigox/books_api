@@ -8,15 +8,18 @@ const   {
  getBooks
 }  = require("../controllers/books")
 
+const { 
+ protect
+}  =   require('../middleware/auth')
 router
   .route('/')
   .get(getBooks)
-  .post(createBook)
+  .post(protect,createBook)
 
 router
     .route('/:id')
     .get(getBook)
-    .put(updateBook)
-    .delete(deleteBook)
+    .put(protect,updateBook)
+    .delete(protect,deleteBook)
 
 module.exports = router
