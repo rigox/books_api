@@ -16,6 +16,15 @@ const  bookSchema = new Schema({
     type:String,
     required:[true,'please add Author of the book']
 },
+quantity:{
+    type:Number,
+    default:1
+},
+ status:{
+    type:Boolean,
+    default:true
+ }
+,
 isbn:{
     type:String,
     required:[true,'please add genre of the book'],

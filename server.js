@@ -20,10 +20,11 @@ app.use(express.json(), express.urlencoded({extended:true}))
 //load routes  
 const books =  require('./routes/books')
 const auth =  require('./routes/auth')
+const profiles =  require("./routes/profile")
 //setup routes
 app.use('/api/v1/books',books)
 app.use('/api/v1/auth',auth)
-
+app.use('/api/v1/profiles',profiles)
 
 //setup cors 
 

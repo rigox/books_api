@@ -19,6 +19,9 @@ const userSchema = new Schema({
      ]
 
     },
+    phoneNumber:{
+           type:String
+    },
     role:{
          type:String,
          enum:['user','publisher'],
