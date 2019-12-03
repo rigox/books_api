@@ -9,7 +9,8 @@ const {
      createProfile,
      getProfile,
      getProfiles,
-     checkoutBook
+     checkoutBook,
+      returnBooks
 } =  require("../controllers/profiles")
 
 router
@@ -22,5 +23,9 @@ router
         .get(getProfile)
         .put(protect,checkoutBook)
 
+router.
+     route('/return/:id')
+        .put(returnBooks)
 
+    
 module.exports =  router;

@@ -91,6 +91,34 @@ exports.checkoutBook =  asyncHandler(async (req,res,next)=>{
 });
 
 
+//@route UPDATE  /api/v1/profiles/return
+//@desc   returns the users books
+//@access private
+exports.returnBooks =  asyncHandler(async (req,res,next)=>{
+    
+    console.log('inside returns', req.params.id)
+
+      const updatedProfile = await Profile.findByIdAndUpdate({
+            '_id':req.params.id
+      },
+         {
+             $pull:{books:{$in:req.body.books}}
+         },{
+              new:true,
+              runValidators:true
+         }
+
+        )
+    
+
+     res.status(200).json({
+          success:true,
+          data:updatedProfile
+     })
+});
+
+
+
 
 //function to test route
 exports.test =  asyncHandler(async (req,res,next)=>{
